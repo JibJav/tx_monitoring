@@ -1,0 +1,39 @@
+testenv/
+.ipynb_checkpoints/
+__pycache__/
+
+mlruns/
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# MLflow
+mlruns/
+mlflow.db
+
+# Feast
+feature_store.db
+
+# VSCode
+.vscode/
+mlruns/
+results/
+*.db
+__pycache__/
+.ipynb_checkpoints/
+.vscode/
+# Data
+*.csv
+*.parquet
+
+# Results
+results/
+
+# Environment
+venv/
+.env
+testenv/
+testenv/bin
