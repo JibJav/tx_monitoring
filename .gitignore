@@ -37,3 +37,4 @@ venv/
 .env
 testenv/
 testenv/bin
+/models

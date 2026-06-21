@@ -7,7 +7,7 @@ import os
 np.random.seed(42)
 random.seed(42)
 
-num_records = 1500
+num_records = 5000
 print(f"Generating {num_records} production-style fraud records...")
 
 # 1. Base Text Templates
