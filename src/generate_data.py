@@ -8,8 +8,8 @@ import os
 # ======================================
 SEED = 42
 
-NUM_RECORDS = 20000
-FRAUD_RATIO = 0.30
+NUM_RECORDS = 5000
+FRAUD_RATIO = 0.15
 STEALTH_FRAUD_RATIO = 0.30
 
 CLEAN_AMOUNT_MIN = 5

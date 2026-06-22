@@ -1,12 +1,13 @@
 import mlflow
 import mlflow.pytorch
 import torch
+
 import torch.nn as nn
 import pandas as pd
 import numpy as np
 from transformers import AutoModel, AutoTokenizer
 from sklearn.preprocessing import MinMaxScaler
-
+from datetime import datetime
 # ==========================================================
 # Configuration
 # ==========================================================
@@ -123,7 +124,9 @@ targets = torch.tensor(
 # ==========================================================
 # Training
 # ==========================================================
-with mlflow.start_run():
+run_name = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+with mlflow.start_run(run_name=run_name):
 
     mlflow.log_param("dataset", DATASET_PATH)
     mlflow.log_param("rows", len(df))
@@ -131,8 +134,11 @@ with mlflow.start_run():
     mlflow.log_param("learning_rate", LEARNING_RATE)
     mlflow.log_param("hidden_dim", HIDDEN_DIM)
     mlflow.log_param("base_model", MODEL_NAME)
-    mlflow.log_param("features", FEATURE_COLUMNS)
 
+    mlflow.log_metric(
+        "fraud_ratio",
+        float(df["label"].mean())
+    )
     for epoch in range(EPOCHS):
 
         optimizer.zero_grad()

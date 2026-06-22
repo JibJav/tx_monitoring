@@ -38,3 +38,5 @@ venv/
 testenv/
 testenv/bin
 /models
+logs/mlflow.log
+logs/jupyter.log
