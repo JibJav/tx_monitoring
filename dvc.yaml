@@ -1,15 +1,28 @@
 stages:
+
+  generate:
+    cmd: python src/generate_data.py
+    outs:
+      - data/raw
+
   preprocess:
     cmd: python src/preprocess.py
     deps:
-    - data/raw
-    - src/preprocess.py
+      - data/raw
+      - src/preprocess.py
     outs:
-    - data/processed
+      - data/processed
+
   train:
     cmd: python src/train.py
     deps:
-    - data/processed
-    - src/train.py
+      - data/processed
+      - src/train.py
     outs:
-    - models
+      - results/predictions.csv
+
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+      - src/evaluate.py
+      - results/predictions.csv
